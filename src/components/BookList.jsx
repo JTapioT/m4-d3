@@ -13,7 +13,6 @@ class BookList extends React.Component {
 
   filterBooks(searchValue) {
     let filteredBooks = this.props.books.filter(book => book.title.toLowerCase().includes(searchValue.toLowerCase()))
-    console.log(filteredBooks)
     return filteredBooks;
   }
   
@@ -53,7 +52,7 @@ class BookList extends React.Component {
 
         <Row>
           {this.state.books.map((book) => {
-            return <SingleBook book={book} />;
+            return <SingleBook key={book.asin} book={book} />;
           })}
         </Row>
       </Container>
